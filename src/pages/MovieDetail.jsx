@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { API_KEY, BASE_IMG_URL, urlRequest } from "../config/config";
@@ -22,7 +23,9 @@ const MovieDetail = () => {
     };
     const getCast = async () => {
       try {
-        const res = await urlRequest.get(`3/movie/${id}/credits?api_key=${API_KEY}`);
+        const res = await urlRequest.get(
+          `3/movie/${id}/credits?api_key=${API_KEY}`
+        );
         setCast(res.data.cast);
         console.log(res.data.cast);
       } catch (error) {
@@ -31,7 +34,9 @@ const MovieDetail = () => {
     };
     const getVideos = async () => {
       try {
-        const res = await urlRequest.get(`3/movie/${id}/videos?api_key=${API_KEY}`);
+        const res = await urlRequest.get(
+          `3/movie/${id}/videos?api_key=${API_KEY}`
+        );
         setVideos(res.data.results);
         console.log(res.data.results);
       } catch (error) {
@@ -47,7 +52,9 @@ const MovieDetail = () => {
       <div className="mb-3">
         <div
           className="item"
-          style={{ backgroundImage: `url(${BASE_IMG_URL}original/${movie.backdrop_path})` }}
+          style={{
+            backgroundImage: `url(${BASE_IMG_URL}original/${movie.backdrop_path})`,
+          }}
         >
           <div className="content">
             <div className="">
@@ -67,9 +74,13 @@ const MovieDetail = () => {
                   </button>
                 ))}
               </div>
-              <div className="font-bold text-white text-left mb-[2rem]">{movie.overview}</div>
+              <div className="font-bold text-white text-left mb-[2rem]">
+                {movie.overview}
+              </div>
               <div className="hidden sm:block">
-                <h2 className="text-white text-3xl font-bold text-left mb-3">CAST</h2>
+                <h2 className="text-white text-3xl font-bold text-left mb-3">
+                  CAST
+                </h2>
                 <div className="flex gap-5">
                   {cast?.slice(0, 3).map((cast) => (
                     <img
