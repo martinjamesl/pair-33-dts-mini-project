@@ -42,7 +42,7 @@ const Footer = () => {
           <NavLink to="/">
             <button className="border py-2 px-4 mb-5">Service Code</button>
           </NavLink>
-          <p>© Pair 55, All Right Reserved</p>
+          <p>Mini Project DTS Pair 33</p>
         </div>
       </footer>
     </>
